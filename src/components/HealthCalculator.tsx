@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Calculator, ArrowLeft, RefreshCw, CheckCircle, Flame, Droplets, Scale, Sparkles } from 'lucide-react';
+import { Calculator, ArrowLeft, CheckCircle, Flame, Droplets, Scale, Sparkles } from 'lucide-react';
 import { gsap } from '../utils/gsapSetup';
 
 interface HealthCalculatorProps {
@@ -14,22 +14,42 @@ interface HealthCalculatorProps {
 
 export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithResults }) => {
   const [gender, setGender] = useState<'female' | 'male'>('female');
-  const [age, setAge] = useState<number>(30);
-  const [weight, setWeight] = useState<number>(78);
-  const [height, setHeight] = useState<number>(165);
+  const [age, setAge] = useState<string>('');
+  const [weight, setWeight] = useState<string>('');
+  const [height, setHeight] = useState<string>('');
   const [activity, setActivity] = useState<number>(1.2);
   const [goal, setGoal] = useState<'loss' | 'maintain' | 'gain'>('loss');
 
+  const numAge = Number(age);
+  const numWeight = Number(weight);
+  const numHeight = Number(height);
+  const isComplete = numAge > 0 && numWeight > 0 && numHeight > 0;
+
   // Animated displayed numbers via GSAP
-  const [displayedBmi, setDisplayedBmi] = useState<number>(28.7);
-  const [displayedCalories, setDisplayedCalories] = useState<number>(1850);
+  const [displayedBmi, setDisplayedBmi] = useState<number>(0);
+  const [displayedCalories, setDisplayedCalories] = useState<number>(0);
   const gaugeNeedleRef = useRef<HTMLDivElement>(null);
   const resultsCardRef = useRef<HTMLDivElement>(null);
 
   // Scientific calculation using Mifflin-St Jeor
   const calculation = useMemo(() => {
-    const heightInMeters = height / 100;
-    const bmiVal = weight / (heightInMeters * heightInMeters);
+    if (!isComplete) {
+      return {
+        bmi: 0,
+        category: 'بانتظار إدخال البيانات',
+        categoryColor: 'text-slate-600 bg-slate-100 border-slate-200',
+        description: 'أدخل العمر والوزن والطول في الخانات المخصصة لحساب مؤشر كتلة جسمك واحتياجك اليومي من السعرات فوراً.',
+        minIdealWeight: 0,
+        maxIdealWeight: 0,
+        bmr: 0,
+        tdee: 0,
+        targetCalories: 0,
+        waterLiters: '0.0'
+      };
+    }
+
+    const heightInMeters = numHeight / 100;
+    const bmiVal = numWeight / (heightInMeters * heightInMeters);
     const bmi = parseFloat(bmiVal.toFixed(1));
 
     // Ideal weight bounds (BMI 19 to 24)
@@ -37,7 +57,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
     const maxIdealWeight = Math.round(24 * heightInMeters * heightInMeters);
 
     // BMR (Mifflin-St Jeor)
-    let bmrVal = 10 * weight + 6.25 * height - 5 * age;
+    let bmrVal = 10 * numWeight + 6.25 * numHeight - 5 * numAge;
     if (gender === 'male') {
       bmrVal += 5;
     } else {
@@ -55,7 +75,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
     }
 
     // Daily Water
-    const waterLiters = (weight * 0.035).toFixed(1);
+    const waterLiters = (numWeight * 0.035).toFixed(1);
 
     // BMI Category
     let category = 'وزن طبيعي ومثالي';
@@ -92,10 +112,23 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
       targetCalories,
       waterLiters
     };
-  }, [gender, age, weight, height, activity, goal]);
+  }, [isComplete, gender, numAge, numWeight, numHeight, activity, goal]);
 
   // Smooth GSAP Tween when calculation updates
   useEffect(() => {
+    if (!isComplete) {
+      setDisplayedBmi(0);
+      setDisplayedCalories(0);
+      if (gaugeNeedleRef.current) {
+        gsap.to(gaugeNeedleRef.current, {
+          left: '50%',
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+      }
+      return;
+    }
+
     const animatedObj = {
       bmi: displayedBmi,
       calories: displayedCalories
@@ -124,7 +157,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
       });
     }
 
-  }, [calculation.bmi, calculation.targetCalories]);
+  }, [isComplete, calculation.bmi, calculation.targetCalories]);
 
   const handleApplyToBooking = () => {
     let goalLabel = 'خسارة دهون ورشاقة';
@@ -132,11 +165,11 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
     if (goal === 'gain') goalLabel = 'علاج نحافة وبناء عضلات';
 
     onBookWithResults({
-      bmi: `${calculation.bmi} (${calculation.category})`,
-      weight,
-      height,
+      bmi: isComplete ? `${calculation.bmi} (${calculation.category})` : 'غير محدد',
+      weight: numWeight || 0,
+      height: numHeight || 0,
       goal: goalLabel,
-      tdee: calculation.targetCalories,
+      tdee: calculation.targetCalories || 0,
     });
   };
 
@@ -201,12 +234,12 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                 </div>
               </div>
 
-              {/* Age, Weight, Height Grid - 3 compact columns on mobile too */}
+              {/* Age, Weight, Height Grid - Empty by default with no prefilled numbers */}
               <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
                 {/* Age */}
                 <div>
                   <label className="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1.5 truncate">
-                    العمر (سنة)
+                    العمر (بالسنوات)
                   </label>
                   <input
                     type="number"
@@ -214,7 +247,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                     min="12"
                     max="90"
                     value={age}
-                    onChange={(e) => setAge(Number(e.target.value) || 20)}
+                    onChange={(e) => setAge(e.target.value)}
                     className="w-full px-2 sm:px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-base sm:text-lg"
                   />
                 </div>
@@ -222,7 +255,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                 {/* Weight */}
                 <div>
                   <label className="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1.5 truncate">
-                    الوزن (كجم)
+                    الوزن الحالي (كجم)
                   </label>
                   <input
                     type="number"
@@ -230,7 +263,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                     min="30"
                     max="250"
                     value={weight}
-                    onChange={(e) => setWeight(Number(e.target.value) || 50)}
+                    onChange={(e) => setWeight(e.target.value)}
                     className="w-full px-2 sm:px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-base sm:text-lg"
                   />
                 </div>
@@ -246,7 +279,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                     min="120"
                     max="220"
                     value={height}
-                    onChange={(e) => setHeight(Number(e.target.value) || 150)}
+                    onChange={(e) => setHeight(e.target.value)}
                     className="w-full px-2 sm:px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-base sm:text-lg"
                   />
                 </div>
@@ -328,7 +361,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                 مؤشر كتلة الجسم (BMI)
               </span>
               <div className="text-4xl sm:text-5xl font-black text-emerald-900 tabular-nums tracking-tight mb-2">
-                {displayedBmi}
+                {isComplete ? displayedBmi : '—'}
               </div>
               <div className={`inline-block px-3.5 py-1 rounded-lg text-xs font-bold border ${calculation.categoryColor} mb-3`}>
                 {calculation.category}
@@ -344,10 +377,10 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                   style={{ left: '50%' }}
                 />
                 <div className="flex justify-between text-[10px] text-slate-600 mt-1.5 px-0.5">
-                  <span>نحافة (18.5)</span>
-                  <span>مثالي (24.9)</span>
-                  <span>زيادة (29.9)</span>
-                  <span>سمنة (35+)</span>
+                  <span>نحافة</span>
+                  <span>مثالي</span>
+                  <span>زيادة</span>
+                  <span>سمنة</span>
                 </div>
               </div>
 
@@ -366,10 +399,10 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                   <span>السعرات المستهدفة</span>
                 </div>
                 <div className="text-xl font-extrabold text-slate-900 tabular-nums">
-                  {displayedCalories} <span className="text-xs font-normal text-slate-600">سعرة/يوم</span>
+                  {isComplete ? displayedCalories : '—'} <span className="text-xs font-normal text-slate-600">سعرة/يوم</span>
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5">
-                  معدل الحرق الإجمالي: {calculation.tdee}
+                  معدل الحرق الإجمالي: {isComplete ? calculation.tdee : '—'}
                 </div>
               </div>
 
@@ -380,7 +413,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                   <span>الوزن المثالي المقترح</span>
                 </div>
                 <div className="text-xl font-extrabold text-slate-900 tabular-nums">
-                  {calculation.minIdealWeight} - {calculation.maxIdealWeight} <span className="text-xs font-normal text-slate-600">كجم</span>
+                  {isComplete ? `${calculation.minIdealWeight} - ${calculation.maxIdealWeight}` : '—'} <span className="text-xs font-normal text-slate-600">كجم</span>
                 </div>
                 <div className="text-[11px] text-slate-500 mt-0.5">
                   حسب معايير منظمة الصحة
@@ -397,7 +430,7 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                   </div>
                 </div>
                 <div className="text-lg font-bold text-sky-800 tabular-nums">
-                  {calculation.waterLiters} <span className="text-xs font-normal">لتر</span>
+                  {isComplete ? calculation.waterLiters : '—'} <span className="text-xs font-normal">لتر</span>
                 </div>
               </div>
 
