@@ -17,7 +17,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const textContentRef = useRef<HTMLDivElement>(null);
   const imageFrameRef = useRef<HTMLDivElement>(null);
   const badgeFloatingRef = useRef<HTMLDivElement>(null);
-  const counterFloatingRef = useRef<HTMLDivElement>(null);
   const statsStripRef = useRef<HTMLDivElement>(null);
 
   // Animated counters state
@@ -64,16 +63,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         });
       }
 
-      if (counterFloatingRef.current) {
-        gsap.to(counterFloatingRef.current, {
-          y: -8,
-          duration: 2.8,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          delay: 0.5
-        });
-      }
 
       // 4. Counter animations for proof metrics with ScrollTrigger
       const counterObj = { cases: 0, years: 0, satisfaction: 0 };
@@ -232,23 +221,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
               </div>
 
-              {/* Floating Success Counter Card - Repositioned to upper-left so it never obscures the bottom Doctor Tag Card */}
-              <div 
-                ref={counterFloatingRef}
-                className="absolute top-16 -left-3 sm:top-24 sm:-left-8 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-slate-100 flex items-center gap-3 transition-transform hover:scale-105 duration-300 will-change-transform"
-              >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-800 shrink-0">
-                  <HeartPulse className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
-                <div>
-                  <div className="text-lg sm:text-xl font-extrabold text-slate-900 tabular-nums">
-                    +{casesCount.toLocaleString('en-US')}
-                  </div>
-                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium whitespace-nowrap">
-                    قصة نجاح وتحول صحي
-                  </div>
-                </div>
-              </div>
 
             </div>
           </div>
