@@ -199,13 +199,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="relative rounded-3xl overflow-hidden bg-gradient-to-tr from-emerald-900/10 to-transparent p-2 border border-emerald-950/10 shadow-xl">
                 <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-emerald-50">
                   <img
-                    src="/src/assets/images/dr_yassmin_portrait_1792189410687.jpg"
+                    src="/photos/dryasmin.webp"
                     alt="د. ياسمين المناوي - أخصائية التغذية العلاجية والسمنة والنحافة"
                     className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
                     referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      (e.target as HTMLElement).style.display = 'none';
-                    }}
                   />
                   {/* Subtle lighting scrim */}
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent pointer-events-none" />
