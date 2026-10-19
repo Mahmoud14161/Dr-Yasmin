@@ -93,7 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section 
       ref={containerRef}
       id="home" 
-      className="relative pt-8 pb-16 lg:pt-14 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#F3F7F3] via-[#F8FAF8] to-white"
+      className="relative pt-6 pb-14 lg:pt-14 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#F3F7F3] via-[#F8FAF8] to-white"
     >
       {/* Subtle organic decorative healthy food backdrop (Imagen generated) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -111,10 +111,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute bottom-10 left-[-80px] w-80 h-80 bg-emerald-50 rounded-full blur-2xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-center">
           
-          {/* Right Column (in RTL): Headline, Doctor Bio Kicker, CTAs */}
-          <div ref={textContentRef} className="lg:col-span-7 flex flex-col items-start text-right">
+          {/* Right Column (in RTL on Desktop, Second on Mobile): Headline, Doctor Bio Kicker, CTAs */}
+          <div ref={textContentRef} className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start text-right">
             
             {/* Unboxed natural kicker */}
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs md:text-sm font-bold text-emerald-800 mb-3 sm:mb-4">
@@ -180,8 +180,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           </div>
 
-          {/* Left Column (in RTL): Doctor Image & Brand Stamp */}
-          <div className="lg:col-span-5 flex justify-center relative mt-2 lg:mt-0">
+          {/* Left Column (in RTL on Desktop, First on Mobile): Doctor Image & Brand Stamp */}
+          <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center relative mt-2 lg:mt-0">
             <div ref={imageFrameRef} className="relative w-full max-w-sm sm:max-w-md lg:max-w-none">
               
               {/* Doctor Portrait Frame */}
