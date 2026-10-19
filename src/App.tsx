@@ -279,7 +279,7 @@ export default function App() {
               <HealthCalculator
                 onBookWithResults={handleBookWithCalculatorResults}
               />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-12 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
                 <button
                   onClick={() => handleNavigate('calculator')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
@@ -295,7 +295,7 @@ export default function App() {
               <ProgramsSection
                 onSelectProgram={handleSelectProgram}
               />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-12 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
                 <button
                   onClick={() => handleNavigate('programs')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
@@ -311,7 +311,7 @@ export default function App() {
               <TransformationStories
                 onOpenBooking={handleOpenBooking}
               />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-12 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
                 <button
                   onClick={() => handleNavigate('transformations')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
@@ -325,7 +325,7 @@ export default function App() {
             {/* 5. Daily Meal Guide & Smart Swaps */}
             <div className="relative">
               <MealPlannerGuide />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-12 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
                 <button
                   onClick={() => handleNavigate('meal-guide')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
@@ -341,7 +341,7 @@ export default function App() {
               <ClinicBranchesSection
                 onSelectBranch={handleSelectBranch}
               />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-12 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
                 <button
                   onClick={() => handleNavigate('branches')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
@@ -357,7 +357,7 @@ export default function App() {
               <FAQSection
                 onOpenBooking={handleOpenBooking}
               />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-12 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
                 <button
                   onClick={() => handleNavigate('faq')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
@@ -373,7 +373,7 @@ export default function App() {
               <AboutDoctor
                 onOpenBooking={handleOpenBooking}
               />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-16 flex justify-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-16 flex justify-center">
                 <button
                   onClick={() => handleNavigate('about')}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
