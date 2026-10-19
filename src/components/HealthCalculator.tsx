@@ -201,50 +201,53 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
                 </div>
               </div>
 
-              {/* Age, Weight, Height Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* Age, Weight, Height Grid - 3 compact columns on mobile too */}
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
                 {/* Age */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                    العمر (بالسنوات)
+                  <label className="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1.5 truncate">
+                    العمر (سنة)
                   </label>
                   <input
                     type="number"
+                    inputMode="numeric"
                     min="12"
                     max="90"
                     value={age}
                     onChange={(e) => setAge(Number(e.target.value) || 20)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-lg"
+                    className="w-full px-2 sm:px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-base sm:text-lg"
                   />
                 </div>
 
                 {/* Weight */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                    الوزن الحالي (كجم)
+                  <label className="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1.5 truncate">
+                    الوزن (كجم)
                   </label>
                   <input
                     type="number"
+                    inputMode="numeric"
                     min="30"
                     max="250"
                     value={weight}
                     onChange={(e) => setWeight(Number(e.target.value) || 50)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-lg"
+                    className="w-full px-2 sm:px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-base sm:text-lg"
                   />
                 </div>
 
                 {/* Height */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  <label className="block text-[11px] sm:text-xs font-bold text-slate-700 mb-1.5 truncate">
                     الطول (سم)
                   </label>
                   <input
                     type="number"
+                    inputMode="numeric"
                     min="120"
                     max="220"
                     value={height}
                     onChange={(e) => setHeight(Number(e.target.value) || 150)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-lg"
+                    className="w-full px-2 sm:px-4 py-2.5 rounded-xl border border-slate-300 bg-white font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-700 tabular-nums text-center text-base sm:text-lg"
                   />
                 </div>
               </div>

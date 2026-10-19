@@ -37,7 +37,7 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
             </div>
 
             {/* Official Logo Emblem floating badge positioned on bottom-left so it never overlaps RTL caption */}
-            <div className="absolute -bottom-6 -left-4 sm:-left-6 z-20 bg-white p-2 rounded-full shadow-2xl border border-emerald-100">
+            <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-6 z-20 bg-white p-1.5 sm:p-2 rounded-full shadow-2xl border border-emerald-100 scale-80 sm:scale-100 origin-bottom-left">
               <DoctorLogo size={90} variant="full-badge" />
             </div>
           </div>

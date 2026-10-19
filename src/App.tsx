@@ -183,27 +183,27 @@ export default function App() {
             />
 
             {/* Quick Section Hub on Home: Direct Access to Dedicated Landing Pages */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 mb-10 relative z-20">
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-emerald-900/10 shadow-lg">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-emerald-700" />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 mb-8 sm:mb-10 relative z-20">
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-5 border border-emerald-900/10 shadow-lg">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 sm:gap-3 pb-2.5 sm:pb-3 border-b border-slate-100">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-emerald-700 shrink-0" />
                     <span className="font-bold text-xs sm:text-sm text-slate-900">
-                      صفحات ولاندينج بيدج المنصة المخصصة
+                      الأقسام والصفحات المخصصة
                     </span>
-                    <span className="text-[11px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-semibold">
-                      صفحة مستقلة لكل قسم
+                    <span className="text-[10px] sm:text-[11px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md font-semibold">
+                      تصفح سريع
                     </span>
                   </div>
-                  <span className="text-xs text-slate-500">
+                  <span className="text-[11px] sm:text-xs text-slate-500 hidden sm:inline">
                     اضغط على أي صفحة للاطلاع على الدليل الكامل والعودة للرئيسية بنقرة واحدة
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 pt-3">
+                <div className="flex overflow-x-auto no-scrollbar sm:grid sm:grid-cols-4 lg:grid-cols-7 gap-2 pt-3 pb-0.5">
                   <button
                     onClick={() => handleNavigate('calculator')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>حاسبة السعرات</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -213,7 +213,7 @@ export default function App() {
 
                   <button
                     onClick={() => handleNavigate('programs')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>البرامج العلاجية</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -223,7 +223,7 @@ export default function App() {
 
                   <button
                     onClick={() => handleNavigate('transformations')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>قصص النجاح</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -233,7 +233,7 @@ export default function App() {
 
                   <button
                     onClick={() => handleNavigate('meal-guide')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>جدول الوجبات</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -243,7 +243,7 @@ export default function App() {
 
                   <button
                     onClick={() => handleNavigate('branches')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>الفروع والمواعيد</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -253,7 +253,7 @@ export default function App() {
 
                   <button
                     onClick={() => handleNavigate('faq')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>الأسئلة الشائعة</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -263,7 +263,7 @@ export default function App() {
 
                   <button
                     onClick={() => handleNavigate('about')}
-                    className="p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95 col-span-2 sm:col-span-1"
+                    className="shrink-0 min-w-[125px] sm:min-w-0 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-900 border border-slate-200/70 hover:border-emerald-300 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1 group active:scale-95"
                   >
                     <span>عن الدكتورة</span>
                     <span className="text-[10px] text-emerald-700 opacity-80 group-hover:opacity-100 font-semibold flex items-center gap-0.5">
@@ -454,8 +454,8 @@ export default function App() {
         prefilledData={prefilledBookingData}
       />
 
-      {/* Official WhatsApp Floating Action Button with GSAP Breathing Pulse */}
-      <div className="fixed bottom-6 left-6 z-40 flex items-center gap-3">
+      {/* Official WhatsApp Floating Action Button on Desktop/Tablet */}
+      <div className="hidden sm:flex fixed bottom-6 left-6 z-40 items-center gap-3">
         <a
           ref={floatingBtnRef}
           href={`https://wa.me/${DOCTOR_INFO.whatsappNumber}?text=${encodeURIComponent('السلام عليكم د. ياسمين المناوي 🌿، أود الاستفسار عن برامج التغذية وحجز موعد استشارة.')}`}
@@ -474,11 +474,34 @@ export default function App() {
         </a>
       </div>
 
-      {/* Official Medical Footer with Page Navigation */}
-      <Footer
-        onOpenBooking={handleOpenBooking}
-        onNavigate={handleNavigate}
-      />
+      {/* Mobile Sticky Bottom Quick Action Bar (Thumb-Friendly Phone UX) */}
+      <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-3 py-2.5 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] flex items-center gap-2.5">
+        <button
+          onClick={handleOpenBooking}
+          className="flex-1 py-3 px-4 rounded-xl bg-emerald-800 active:bg-emerald-900 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform"
+        >
+          <span>احجز استشارتك الآن</span>
+          <ArrowLeft className="w-3.5 h-3.5" />
+        </button>
+        <a
+          href={`https://wa.me/${DOCTOR_INFO.whatsappNumber}?text=${encodeURIComponent('السلام عليكم د. ياسمين المناوي 🌿، أود الاستفسار عن برامج التغذية وحجز موعد استشارة.')}`}
+          target="_blank"
+          rel="noreferrer"
+          className="py-3 px-4 rounded-xl bg-[#25D366] active:bg-[#20ba59] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98] transition-transform shrink-0"
+          aria-label="تواصل واتساب"
+        >
+          <WhatsAppIcon size={18} />
+          <span>واتساب</span>
+        </a>
+      </div>
+
+      {/* Official Medical Footer with Page Navigation (extra bottom padding on mobile for sticky bar) */}
+      <div className="pb-16 sm:pb-0">
+        <Footer
+          onOpenBooking={handleOpenBooking}
+          onNavigate={handleNavigate}
+        />
+      </div>
 
     </div>
   );

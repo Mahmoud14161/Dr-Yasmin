@@ -52,17 +52,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-[#F8FAF8]/95 backdrop-blur-md border-b border-emerald-950/10 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 lg:gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
         
         {/* Zone 1: Brand & Logo (Always shrink-0 to prevent overlap) */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
           <button 
             type="button"
             onClick={() => handleLinkClick('home')}
-            className="flex items-center gap-2.5 sm:gap-3 shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 rounded-xl p-1 text-right transition-transform active:scale-[0.98]"
+            className="flex items-center gap-2 sm:gap-3 shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 rounded-xl p-0.5 sm:p-1 text-right transition-transform active:scale-[0.98]"
             title="الصفحة الرئيسية - د. ياسمين المناوي"
           >
-            <DoctorLogo size={44} variant="compact-inline" />
+            <DoctorLogo size={40} variant="compact-inline" />
           </button>
 
           {/* Quick Subpage Home Return Button on large screens */}
@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Zone 3: Primary Actions & Mobile/Tablet Menu */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Quick Home Return on mobile & tablet when inside a subpage */}
           {isSubPage && (
             <button
@@ -113,6 +113,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <ArrowRight className="w-3.5 h-3.5 text-emerald-700" />
               <span>الرئيسية</span>
+            </button>
+          )}
+
+          {/* Compact Booking Button on Mobile + Full on Desktop */}
+          {!isSubPage && (
+            <button
+              onClick={onOpenBooking}
+              className="inline-flex sm:hidden items-center gap-1.5 px-3 py-2 rounded-xl font-bold text-xs text-white bg-emerald-800 active:scale-95 shadow-xs"
+            >
+              <Calendar className="w-3.5 h-3.5 text-emerald-200" />
+              <span>احجز</span>
             </button>
           )}
 
@@ -127,17 +138,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Menu Button for screens below XL */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-xl text-slate-700 hover:text-emerald-800 hover:bg-emerald-50 border border-slate-200/80 transition-colors focus:outline-none"
+            className="xl:hidden p-2 rounded-xl text-slate-700 hover:text-emerald-800 hover:bg-emerald-50 border border-slate-200/80 transition-colors focus:outline-none active:scale-95"
             aria-label="القائمة الرئيسية"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile & Tablet Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-b border-emerald-950/10 px-4 pt-3 pb-6 shadow-xl animate-in slide-in-from-top duration-200">
+        <div className="xl:hidden bg-white border-b border-emerald-950/10 px-4 pt-3 pb-6 shadow-xl max-h-[calc(100dvh-4rem)] overflow-y-auto animate-in slide-in-from-top duration-200">
           <nav className="flex flex-col gap-1.5">
             {navLinks.map((link) => {
               const isActive = currentPage === link.page;

@@ -26,21 +26,36 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Thmanyah', 'Cairo', sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   overflow-x: hidden;
+  max-width: 100vw;
   background-color: #F8FAF8;
   color: #1E293B;
   font-family: 'Thmanyah', 'Cairo', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Apply Tufuli font to all large headings and titles */
+/* Apply Tufuli font to all large headings and titles with comfortable mobile line-height */
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'TufuliArabic', 'Cairo', sans-serif;
+  line-height: 1.4;
 }
 
-/* Custom subtle scrollbar */
+/* Hide scrollbar for smooth horizontal swipe bars on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom subtle scrollbar on desktop */
 ::-webkit-scrollbar {
   width: 8px;
 }

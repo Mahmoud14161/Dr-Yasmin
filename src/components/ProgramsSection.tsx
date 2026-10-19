@@ -132,9 +132,9 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
         </div>
 
         {/* Filter Tabs & View Mode Toggle */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 max-w-5xl mx-auto">
-          {/* Interactive Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-5xl mx-auto">
+          {/* Interactive Filter Tabs - Horizontally swipeable on mobile */}
+          <div className="flex overflow-x-auto no-scrollbar w-full sm:w-auto sm:flex-wrap items-center justify-start sm:justify-start gap-2 pb-1 sm:pb-0">
             {[
               { id: 'all', label: 'جميع البرامج' },
               { id: 'obesity', label: 'علاج السمنة والقوام' },
@@ -157,7 +157,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
           </div>
 
           {/* Mode Toggle: Swipe vs Grid */}
-          <div className="inline-flex items-center bg-white p-1 rounded-xl border border-slate-200/80 shadow-xs shrink-0">
+          <div className="inline-flex items-center bg-white p-1 rounded-xl border border-slate-200/80 shadow-xs shrink-0 self-end sm:self-auto">
             <button
               onClick={() => setViewMode('swipe')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
@@ -189,9 +189,9 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
             
             {/* Swipe Gesture Hint */}
             {total > 1 && (
-              <div className="flex items-center justify-center gap-2 mb-4 text-xs text-emerald-800/80 font-semibold">
-                <Hand className="w-3.5 h-3.5 animate-pulse text-emerald-600" />
-                <span>اسحب البطاقة يميناً أو يساراً أو اضغط على البطاقات الجانبية للتبديل ({activeIndex + 1} من {total})</span>
+              <div className="flex items-center justify-center gap-1.5 mb-3 sm:mb-4 text-[11px] sm:text-xs text-emerald-800/85 font-semibold text-center px-2">
+                <Hand className="w-3.5 h-3.5 animate-pulse text-emerald-600 shrink-0" />
+                <span>اسحب البطاقة يميناً أو يساراً للتبديل بين الباقات ({activeIndex + 1} من {total})</span>
               </div>
             )}
 
@@ -210,7 +210,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
 
               {/* 3D Card Swap Stack Stage using CSS Grid Overlap so height adapts naturally */}
               <div
-                className="relative grid grid-cols-1 place-items-center w-full py-4 select-none touch-pan-y"
+                className="relative grid grid-cols-1 place-items-center w-full py-3 sm:py-4 select-none touch-pan-y [--card-offset:7%] sm:[--card-offset:36%]"
                 onMouseDown={(e) => handleDragStart(e.clientX)}
                 onMouseMove={(e) => handleDragMove(e.clientX)}
                 onMouseUp={handleDragEnd}
@@ -226,7 +226,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
                   const isPrev = offset === -1;
                   const isVisible = Math.abs(offset) <= 1;
 
-                  // Compute 3D Swap Transform
+                  // Compute 3D Swap Transform using responsive CSS variable --card-offset
                   let transformStyle = 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)';
                   let zIndex = 30;
                   let opacity = 1;
@@ -238,16 +238,16 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
                     opacity = 1;
                   } else if (isNext) {
                     // Peeking card on the left
-                    transformStyle = `translate3d(calc(-38% + ${dragX * 0.2}px), 14px, 0px) scale(0.88) rotate(-3deg)`;
+                    transformStyle = `translate3d(calc(-1 * var(--card-offset) + ${dragX * 0.2}px), 14px, 0px) scale(0.91) rotate(-2deg)`;
                     zIndex = 20;
                     opacity = 0.55;
                   } else if (isPrev) {
                     // Peeking card on the right
-                    transformStyle = `translate3d(calc(38% + ${dragX * 0.2}px), 14px, 0px) scale(0.88) rotate(3deg)`;
+                    transformStyle = `translate3d(calc(var(--card-offset) + ${dragX * 0.2}px), 14px, 0px) scale(0.91) rotate(2deg)`;
                     zIndex = 20;
                     opacity = 0.55;
                   } else {
-                    transformStyle = `translate3d(${offset > 0 ? '-55%' : '55%'}, 28px, 0px) scale(0.76)`;
+                    transformStyle = `translate3d(0px, 24px, 0px) scale(0.82)`;
                     zIndex = 10;
                     opacity = 0;
                   }
@@ -269,7 +269,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
                           : 'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease',
                         pointerEvents: isVisible ? 'auto' : 'none',
                       }}
-                      className={`col-start-1 row-start-1 w-full max-w-xl rounded-3xl p-6 sm:p-8 flex flex-col justify-between ${
+                      className={`col-start-1 row-start-1 w-full max-w-xl rounded-3xl p-5 sm:p-8 flex flex-col justify-between ${
                         isActive
                           ? 'bg-white border-2 border-emerald-700 shadow-2xl ring-4 ring-emerald-700/10 cursor-grab active:cursor-grabbing'
                           : 'bg-white/95 border border-slate-200 shadow-lg cursor-pointer hover:opacity-80'
@@ -277,20 +277,20 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onSelectProgra
                     >
                       <div>
                         {/* Top status row: Highlight badge + Slide index pill */}
-                        <div className="flex items-center justify-between gap-2 mb-4">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5 sm:mb-4">
                           {program.highlight ? (
-                            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-                              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                              <span>البرنامج الأكثر طلباً واختياراً</span>
+                            <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 sm:px-3 py-1 rounded-full">
+                              <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                              <span>البرنامج الأكثر طلباً</span>
                             </div>
                           ) : (
-                            <span className="inline-flex items-center text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
+                            <span className="inline-flex items-center text-[11px] sm:text-xs font-bold text-slate-600 bg-slate-100 px-2.5 sm:px-3 py-1 rounded-full">
                               {program.categoryLabel}
                             </span>
                           )}
 
-                          <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-bold bg-emerald-50/70 px-3 py-1 rounded-full">
-                            <Clock className="w-3.5 h-3.5" />
+                          <div className="flex items-center gap-1 text-[11px] sm:text-xs text-emerald-800 font-bold bg-emerald-50/70 px-2.5 sm:px-3 py-1 rounded-full">
+                            <Clock className="w-3.5 h-3.5 shrink-0" />
                             <span>{program.duration}</span>
                           </div>
                         </div>

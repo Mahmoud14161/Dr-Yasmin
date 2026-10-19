@@ -121,18 +121,18 @@ ${healthNotes ? `• ملاحظات وتاريخ صحي: ${healthNotes}` : ''}
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
       
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-emerald-950/15 overflow-hidden my-8">
+      <div className="relative w-full max-w-2xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-emerald-950/15 overflow-hidden my-0 sm:my-8 max-h-[92dvh] flex flex-col">
         
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-white p-6 relative flex items-center justify-between">
+        <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-white p-4 sm:p-6 relative flex items-center justify-between shrink-0">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-emerald-200 mb-1">
               <Calendar className="w-4 h-4" />
               <span>نظام الحجز الذكي المباشر</span>
             </div>
-            <h3 className="text-xl font-bold">
+            <h3 className="text-lg sm:text-xl font-bold">
               حجز موعد استشارة مع د. ياسمين المناوي
             </h3>
           </div>
@@ -147,12 +147,12 @@ ${healthNotes ? `• ملاحظات وتاريخ صحي: ${healthNotes}` : ''}
 
         {submitted ? (
           /* Confirmation View */
-          <div className="p-8 text-center space-y-5">
+          <div className="p-6 sm:p-8 text-center space-y-5 overflow-y-auto">
             <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mx-auto border-2 border-emerald-200">
               <CheckCircle className="w-8 h-8" />
             </div>
 
-            <h4 className="text-2xl font-bold text-slate-900">
+            <h4 className="text-xl sm:text-2xl font-bold text-slate-900">
               تم تجهيز طلب الحجز بنجاح!
             </h4>
 
@@ -182,7 +182,7 @@ ${healthNotes ? `• ملاحظات وتاريخ صحي: ${healthNotes}` : ''}
           </div>
         ) : (
           /* Booking Form */
-          <form onSubmit={handleConfirmAndSend} className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
+          <form onSubmit={handleConfirmAndSend} className="p-5 sm:p-8 space-y-5 sm:space-y-6 overflow-y-auto overscroll-contain flex-1">
             
             {/* Step 1: Consultation Type */}
             <div>
