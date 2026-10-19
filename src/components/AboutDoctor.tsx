@@ -19,14 +19,14 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden bg-emerald-50 border border-emerald-900/10 shadow-xl aspect-[4/3]">
               <img
-                src="/src/assets/images/clinic_consultation_desk_1792189375511.jpg"
+                src="/photos/alibrary.webp"
                 alt="عيادة د. ياسمين عصام المناوي للتغذية العلاجية"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/75 via-emerald-950/15 to-transparent" />
               
-              <div className="absolute bottom-4 right-4 left-4 text-white">
+              <div className="absolute bottom-4 right-5 left-24 text-white text-right">
                 <span className="text-xs font-bold text-emerald-300 block mb-0.5">
                   رعاية سريرية مبنية على الدليل العلمي
                 </span>
@@ -36,8 +36,8 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
               </div>
             </div>
 
-            {/* Official Logo Emblem floating badge */}
-            <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-white p-2 rounded-full shadow-2xl border border-emerald-100">
+            {/* Official Logo Emblem floating badge positioned on bottom-left so it never overlaps RTL caption */}
+            <div className="absolute -bottom-6 -left-4 sm:-left-6 z-20 bg-white p-2 rounded-full shadow-2xl border border-emerald-100">
               <DoctorLogo size={90} variant="full-badge" />
             </div>
           </div>
