@@ -6,6 +6,8 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  /* Restrict DEMO font strictly to Arabic alphabet characters so digits (0-9, ٠-٩) and parentheses never show DEMO watermark */
+  unicode-range: U+0621-0652, U+0671-06D3, U+FB50-FDFF, U+FE70-FEFF;
 }
 
 @font-face {
@@ -19,7 +21,7 @@
 @theme {
   --font-cairo: 'Thmanyah', 'Cairo', sans-serif;
   --font-sans: 'Thmanyah', sans-serif;
-  --font-heading: 'TufuliArabic', sans-serif;
+  --font-heading: 'TufuliArabic', 'Thmanyah', 'Cairo', sans-serif;
   --font-body: 'Thmanyah', sans-serif;
 }
 
@@ -40,9 +42,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Apply Tufuli font to all large headings and titles with comfortable mobile line-height */
+/* Apply Tufuli font to Arabic letters in headings while numbers/symbols use Thmanyah/Cairo */
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'TufuliArabic', 'Cairo', sans-serif;
+  font-family: 'TufuliArabic', 'Thmanyah', 'Cairo', sans-serif;
   line-height: 1.4;
 }
 

@@ -174,21 +174,18 @@ export const HealthCalculator: React.FC<HealthCalculatorProps> = ({ onBookWithRe
   };
 
   return (
-    <section id="calculator" className="py-16 lg:py-24 bg-white border-t border-b border-emerald-950/10">
+    <section id="calculator" className="py-14 lg:py-20 bg-white border-t border-b border-emerald-950/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="text-xs font-bold text-emerald-800 mb-2 flex items-center justify-center gap-1.5">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+          <div className="text-xs font-bold text-emerald-800 mb-1.5 flex items-center justify-center gap-1.5">
             <Sparkles className="w-4 h-4 text-emerald-600" />
             <span>فحص أولي مجاني ودقيق</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 text-balance">
-            حاسبة مؤشر كتلة الجسم (BMI) واحتياج السعرات اليومية
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
+            حاسبة كتلة الجسم (BMI) والسعرات
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
-            احسب وزنك المثالي ومعدل حرق جسمك والسعرات المستهدفة لتحقيق هدفك بطريقة علمية ومعتمدة طبياً.
-          </p>
         </div>
 
         {/* Main Grid: Inputs vs Results */}

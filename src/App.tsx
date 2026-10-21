@@ -182,116 +182,38 @@ export default function App() {
               onScrollToCalculator={handleScrollToCalculator}
             />
 
-
             {/* 2. Interactive Health & Caloric Needs Calculator */}
-            <div className="relative">
-              <HealthCalculator
-                onBookWithResults={handleBookWithCalculatorResults}
-              />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('calculator')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج حاسبة السعرات المستقلة والدليل الطبي</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            <HealthCalculator
+              onBookWithResults={handleBookWithCalculatorResults}
+            />
 
             {/* 3. Clinical & Nutrition Programs */}
-            <div className="relative">
-              <ProgramsSection
-                onSelectProgram={handleSelectProgram}
-              />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('programs')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج البرامج العلاجية والمقارنة الكاملة</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            <ProgramsSection
+              onSelectProgram={handleSelectProgram}
+            />
 
             {/* 4. Documented Transformation Stories */}
-            <div className="relative">
-              <TransformationStories
-                onOpenBooking={handleOpenBooking}
-              />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('transformations')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج قصص النجاح وتجارب المراجعين الكاملة</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            <TransformationStories
+              onOpenBooking={handleOpenBooking}
+            />
 
             {/* 5. Daily Meal Guide & Smart Swaps */}
-            <div className="relative">
-              <MealPlannerGuide />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('meal-guide')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج جدول الوجبات والبدائل الغذائية الذكية</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            <MealPlannerGuide />
 
             {/* 6. Clinic Locations & Schedule (فروع العيادة والمواعيد) */}
-            <div className="relative">
-              <ClinicBranchesSection
-                onSelectBranch={handleSelectBranch}
-              />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('branches')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج الفروع وتعليمات الزيارة المعتمدة</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            <ClinicBranchesSection
+              onSelectBranch={handleSelectBranch}
+            />
 
-            {/* 7. Frequently Asked Questions */}
-            <div className="relative">
-              <FAQSection
-                onOpenBooking={handleOpenBooking}
-              />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-12 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('faq')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج الأسئلة الشائعة ومركز الاستفسارات</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            {/* 7. About Dr. Yassmin Elmenawy & Credentials */}
+            <AboutDoctor
+              onOpenBooking={handleOpenBooking}
+            />
 
-            {/* 8. About Dr. Yassmin Elmenawy & Credentials */}
-            <div className="relative">
-              <AboutDoctor
-                onOpenBooking={handleOpenBooking}
-              />
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-5 mb-16 flex justify-center">
-                <button
-                  onClick={() => handleNavigate('about')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-200 font-bold text-xs shadow-sm transition-all hover:shadow active:scale-95 group"
-                >
-                  <span>استعراض لاندينج بيدج السيرة المهنية والأكاديمية والشهادات</span>
-                  <ArrowLeft className="w-4 h-4 text-emerald-700 transition-transform group-hover:-translate-x-1" />
-                </button>
-              </div>
-            </div>
+            {/* 8. Frequently Asked Questions */}
+            <FAQSection
+              onOpenBooking={handleOpenBooking}
+            />
           </>
         )}
 

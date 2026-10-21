@@ -39,27 +39,24 @@ export const TransformationStories: React.FC<TransformationStoriesProps> = ({ on
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="text-xs font-bold text-emerald-800 mb-2 flex items-center justify-center gap-1.5">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+          <div className="text-xs font-bold text-emerald-800 mb-1.5 flex items-center justify-center gap-1.5">
             <Sparkles className="w-4 h-4 text-emerald-600" />
             <span>نتائج حقيقية موثقة</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 text-balance">
-            قصص تحول وتجارب نجاح مراجعي العيادة
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
+            قصص نجاح مراجعي العيادة
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
-            وراء كل رقم صحة جديدة ونمط حياة مستدام. استمع لتجارب حقيقية غيرت مسار حياة أصحابها مع د. ياسمين المناوي.
-          </p>
         </div>
 
         {/* Feature Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
           
           {/* Visual Showcase (Photo + Floating Metric) */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-emerald-50 border border-emerald-900/10 shadow-lg">
               <img
-                src="/src/assets/images/wellness_lifestyle_transformation_1792189375918.jpg"
+                src="/images/wellness_lifestyle_transformation_1792189375918.jpg"
                 alt="قصة تحول صحية مع د. ياسمين المناوي"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -71,34 +68,39 @@ export const TransformationStories: React.FC<TransformationStoriesProps> = ({ on
                   <Sparkles className="w-4 h-4" />
                   <span>تغيير حقيقي ومستدام</span>
                 </div>
-                <div className="text-lg font-bold">
-                  أكثر من 4,500 مراجع استعادوا ثقتهم وصحتهم
+                <div className="text-base sm:text-lg font-bold">
+                  +4,500 حالة حققت وزنها المثالي
                 </div>
               </div>
             </div>
 
             {/* Quick Proof Badge with ambient GSAP levitation */}
-            <div ref={floatingBadgeRef} className="absolute -bottom-5 -left-3 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 will-change-transform">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+            <div ref={floatingBadgeRef} className="hidden sm:flex absolute -bottom-5 -left-3 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 items-center gap-3 will-change-transform">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
                 <TrendingDown className="w-5 h-5" />
               </div>
               <div>
-                <span className="block text-xs font-bold text-slate-900">معدل نزول دهون صافي</span>
-                <span className="text-[11px] text-slate-500 font-medium">بدون ترهلات أو فقدان عضلات</span>
+                <span className="block text-xs font-bold text-slate-900">نزول دهون صافي</span>
+                <span className="text-[11px] text-slate-500 font-medium">بدون ترهلات أو حرمان</span>
               </div>
             </div>
           </div>
 
           {/* Detailed Selected Story Highlight */}
-          <div ref={storyCardRef} className="lg:col-span-7 bg-[#F8FAF8] rounded-3xl p-6 sm:p-8 border border-emerald-900/10 shadow-sm flex flex-col justify-between">
+          <div ref={storyCardRef} className="lg:col-span-7 bg-[#F8FAF8] rounded-3xl p-5 sm:p-7 border border-emerald-900/10 shadow-sm flex flex-col justify-between">
             <div>
               {/* Patient header */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-5">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    {selectedStory.name} ({selectedStory.age} سنة)
-                  </h3>
-                  <p className="text-xs text-emerald-800 font-semibold mt-0.5">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-slate-900">
+                      {selectedStory.name}
+                    </h3>
+                    <span className="font-sans text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-0.5 rounded-full tabular-nums">
+                      {selectedStory.age} سنة
+                    </span>
+                  </div>
+                  <p className="text-xs text-emerald-800 font-semibold mt-1">
                     {selectedStory.goal}
                   </p>
                 </div>
@@ -110,17 +112,17 @@ export const TransformationStories: React.FC<TransformationStoriesProps> = ({ on
               </div>
 
               {/* Quantified Metrics Badges */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="p-3.5 bg-white rounded-2xl border border-slate-200/80">
-                  <span className="block text-xs text-slate-500 font-medium">النتيجة المحققة:</span>
-                  <span className="text-xl font-black text-emerald-800 tabular-nums">
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="p-3 bg-white rounded-2xl border border-slate-200/80">
+                  <span className="block text-[11px] text-slate-500 font-medium">النتيجة:</span>
+                  <span className="text-lg sm:text-xl font-black text-emerald-800 tabular-nums font-sans">
                     {selectedStory.weightLoss}
                   </span>
                   <span className="block text-[11px] text-slate-400 mt-0.5">خلال {selectedStory.duration}</span>
                 </div>
 
-                <div className="p-3.5 bg-white rounded-2xl border border-slate-200/80">
-                  <span className="block text-xs text-slate-500 font-medium">التحسن الطبي والتحاليل:</span>
+                <div className="p-3 bg-white rounded-2xl border border-slate-200/80">
+                  <span className="block text-[11px] text-slate-500 font-medium">التحسن الصحي:</span>
                   <span className="text-xs font-bold text-slate-800 block mt-1 leading-snug">
                     {selectedStory.medicalImprovement}
                   </span>
@@ -128,23 +130,23 @@ export const TransformationStories: React.FC<TransformationStoriesProps> = ({ on
               </div>
 
               {/* Story Quote */}
-              <div className="p-4 rounded-2xl bg-white border border-slate-100 relative mb-6">
-                <p className="text-sm text-slate-700 leading-relaxed italic">
+              <div className="p-3.5 rounded-2xl bg-white border border-slate-100 relative mb-5">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   "{selectedStory.story}"
                 </p>
               </div>
             </div>
 
             {/* Quick action */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200/80">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-200/80">
               <span className="text-xs text-slate-600 font-medium">
-                جاهز لتكون قصة النجاح التالية؟
+                ابدأ رحلتك الصحية معنا اليوم
               </span>
               <button
                 onClick={onOpenBooking}
                 className="w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs text-white bg-emerald-800 hover:bg-emerald-900 shadow-sm transition-all"
               >
-                ابدأ رحلتك الصحية الآن
+                احجز كشفك الآن
               </button>
             </div>
           </div>

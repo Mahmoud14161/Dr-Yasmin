@@ -98,7 +98,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Subtle organic decorative healthy food backdrop (Imagen generated) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
-          src="/src/assets/images/hero_nutrition_backdrop_1792280764639.jpg"
+          src="/images/hero_nutrition_backdrop_1792280764639.jpg"
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-center opacity-15 mix-blend-multiply"
@@ -117,33 +117,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div ref={textContentRef} className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start text-right">
             
             {/* Unboxed natural kicker */}
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs md:text-sm font-bold text-emerald-800 mb-3 sm:mb-4">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs md:text-sm font-bold text-emerald-800 mb-3">
               <span>{DOCTOR_INFO.name}</span>
               <span aria-hidden="true" className="text-emerald-400">·</span>
               <span>{DOCTOR_INFO.title}</span>
-              <span aria-hidden="true" className="text-emerald-400 hidden sm:inline">·</span>
-              <span className="text-slate-500 font-medium hidden sm:inline">معتمد إكلينيكياً</span>
             </div>
 
             {/* Main Balanced Display Headline */}
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.35] sm:leading-[1.28] tracking-tight mb-4 sm:mb-6 max-w-2xl text-balance">
-              صحتك ورشاقتك بأسلوب حياة{' '}
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.35] sm:leading-[1.28] tracking-tight mb-3 sm:mb-4 max-w-2xl text-balance">
+              صحتك ورشاقتك بأسلوب{' '}
               <span className="text-emerald-800 underline decoration-emerald-300 decoration-wavy decoration-2 underline-offset-8">
-                مستدام وعلمي
+                علمي ومستدام
               </span>{' '}
-              بدون حرمان قاسي
+              بدون حرمان
             </h1>
 
-            {/* Subtitle Description */}
-            <p className="text-sm sm:text-lg text-slate-600 leading-relaxed mb-6 sm:mb-8 max-w-xl">
-              نصمم لك رحلة علاجية وتغذوية متكاملة تناسب طبيعة جسمك، هرموناتك، وروتين يومك. تخلص من السمنة والنحافة ومقاومة الإنسولين بطرق طبية آمنة تضمن استدامة النتائج مدى الحياة.
+            {/* Concise 1-line Subtitle */}
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-5 sm:mb-7 max-w-lg">
+              أنظمة غذائية مخصصة لطبيعة جسمك لعلاج السمنة والنحافة ومقاومة الإنسولين بنتائج صحية تدوم.
             </p>
 
             {/* Primary & Secondary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-8 sm:mb-10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-6 sm:mb-8">
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-emerald-800 hover:bg-emerald-900 shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-emerald-700"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-emerald-800 hover:bg-emerald-900 shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98]"
               >
                 <Calendar className="w-5 h-5 text-emerald-200" />
                 <span>احجز كشفك الآن (عيادة أو أونلاين)</span>
@@ -151,30 +149,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <button
                 onClick={onScrollToCalculator}
-                className="inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-3.5 rounded-xl font-bold text-sm sm:text-base text-emerald-900 bg-white hover:bg-emerald-50/80 border border-emerald-900/15 shadow-sm transition-all duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-emerald-600"
+                className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3.5 rounded-xl font-bold text-sm sm:text-base text-emerald-900 bg-white hover:bg-emerald-50/80 border border-emerald-900/15 shadow-sm transition-all duration-200 active:scale-[0.98]"
               >
                 <Calculator className="w-5 h-5 text-emerald-700" />
-                <span>احسب مؤشر كتلتك وسعراتك</span>
+                <span>حاسبة السعرات و BMI</span>
               </button>
             </div>
 
-            {/* Trust bullet features without badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 w-full border-t border-slate-200/80 pt-5 sm:pt-6 text-xs sm:text-sm text-slate-700 font-medium">
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-700 shrink-0" />
-                <span>أنظمة غذائية تفصيلية متجددة أسبوعياً</span>
+            {/* Compact 2x2 Trust Pills */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full border-t border-slate-200/80 pt-4 sm:pt-5 text-xs sm:text-sm text-slate-700 font-semibold">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>أنظمة متجددة أسبوعياً</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-700 shrink-0" />
-                <span>برامج خاصة لمقاومة الإنسولين وتكيس المبايض</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>علاج مقاومة الإنسولين</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-700 shrink-0" />
-                <span>متابعة شخصية مستمرة مع د. ياسمين مباشرة</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>متابعة مباشرة مع د. ياسمين</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-700 shrink-0" />
-                <span>خطة تثبيت وزن نهائية لحماية نتائجك</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" />
+                <span>تثبيت وزن نهائي</span>
               </div>
             </div>
 

@@ -47,19 +47,19 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
             
             <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 mb-2">
               <GraduationCap className="w-4 h-4 text-emerald-700" />
-              <span>المسيرة الأكاديمية والخبرة الإكلينيكية</span>
+              <span>الخبرة الأكاديمية والإكلينيكية</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 text-balance">
-              عن دكتورة ياسمين عصام المناوي
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-3 text-balance">
+              د. ياسمين عصام المناوي
             </h2>
 
-            <p className="text-base text-slate-600 leading-relaxed mb-6">
-              أخصائية التغذية العلاجية وإدارة السمنة والنحافة، ومحاضرة ومدربة معتمدة. تجمع بين الفهم العميق لكيمياء الجسم الحيوية (Biochemistry) والخبرة السريرية لأكثر من 8 سنوات لتقديم أنظمة غذائية آمنة ومستدامة تحقق أهدافك دون حرمان قاسي.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+              أخصائية التغذية العلاجية وإدارة السمنة والنحافة، تجمع بين تخصص الكيمياء الحيوية والخبرة السريرية لتصميم أنظمة صحية آمنة ومستدامة بدون حرمان.
             </p>
 
             {/* 3 Core Highlight Pillars from CV */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full mb-7">
               <div className="p-3.5 rounded-2xl bg-[#F8FAF8] border border-slate-200/80 text-right">
                 <span className="text-xs font-extrabold text-emerald-800 block">ماجستير كيمياء حيوية</span>
                 <span className="text-[11px] text-slate-500 font-medium">كلية الصيدلة، جامعة الأزهر</span>
@@ -72,27 +72,6 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
                 <span className="text-xs font-extrabold text-emerald-800 block">+8 سنوات خبرة</span>
                 <span className="text-[11px] text-slate-500 font-medium">سمنة وتكميم وتجميل ورياضيين</span>
               </div>
-            </div>
-
-            {/* Philosophy Box */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/60 border border-emerald-900/15 mb-6 text-slate-800 w-full">
-              <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 mb-1.5">
-                <HeartHandshake className="w-4 h-4 text-emerald-700" />
-                <span>فلسفة د. ياسمين في العلاج:</span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
-                "{DOCTOR_INFO.philosophy}"
-              </p>
-            </div>
-
-            {/* Core Credentials Checklist (concise & high-impact) */}
-            <div className="space-y-2.5 mb-8 w-full">
-              {DOCTOR_INFO.credentials.map((cred, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
-                  <span>{cred}</span>
-                </div>
-              ))}
             </div>
 
             {/* Actions */}
@@ -124,3 +103,4 @@ export const AboutDoctor: React.FC<AboutDoctorProps> = ({ onOpenBooking }) => {
     </section>
   );
 };
+
