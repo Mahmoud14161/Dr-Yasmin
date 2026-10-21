@@ -28,4 +28,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://ais-pre-g57o4p3qi2rhjasjnvhav2-55069717055.europe-west2.run.app/sitemap.xml
+Sitemap: https://yasmin.elminawy.com/sitemap.xml
