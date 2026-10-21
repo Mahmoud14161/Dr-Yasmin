@@ -133,13 +133,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onNavigate }) => 
 
         </div>
 
-        {/* Bottom Bar: Disclaimer & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center md:text-right">
-          <p className="max-w-2xl leading-relaxed">
-            * تنبيه طبي: المعلومات الواردة في هذا الموقع للأغراض التوعوية ولا تغني عن الفحص الطبي المباشر والتحاليل المخبرية المعتمدة لحالتك الفردية.
-          </p>
-          <div className="whitespace-nowrap shrink-0">
+        {/* Bottom Bar: Copyright & Medestra Credit */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400 text-center sm:text-right">
+          <div>
             جميع الحقوق محفوظة © {new Date().getFullYear()} د. ياسمين المناوي
+          </div>
+          <div dir="ltr" className="font-sans text-xs text-slate-400">
+            Website designed by{' '}
+            <a
+              href="https://medestra.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-bold underline underline-offset-4 transition-colors"
+            >
+              Medestra ®
+            </a>
           </div>
         </div>
 
